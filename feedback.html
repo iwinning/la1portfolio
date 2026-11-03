@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - André's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/feedback.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>André's Portfolio</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="feedback.html">Feedback</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Send Feedback</h2>
+        <p>I'd love to hear your thoughts!</p>
+
+        <form id="feedbackForm" novalidate>
+            <div>
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" required>
+                <p id="nameError" class="error-message"></p>
+            </div>
+
+            <div>
+                <label for="email">Email *</label>
+                <input type="email" id="email" required>
+                <p id="emailError" class="error-message"></p>
+            </div>
+
+            <div>
+                <label for="topic">Topic of Interest *</label>
+                <select id="topic" required>
+                    <option value="">Select a topic</option>
+                    <option value="web">Web Development</option>
+                    <option value="projects">My Projects</option>
+                    <option value="other">Other</option>
+                </select>
+                <p id="topicError" class="error-message"></p>
+            </div>
+
+            <div>
+                <label for="comments">Comments *</label>
+                <textarea id="comments" required></textarea>
+                <p id="charCounter">0 characters (minimum 15)</p>
+                <p id="commentsError" class="error-message"></p>
+            </div>
+
+            <div>
+                <label for="website">Website (optional)</label>
+                <input type="url" id="website">
+                <p id="websiteError" class="error-message"></p>
+            </div>
+
+            <button type="submit">Submit</button>
+            <button type="button" id="clearButton">Clear</button>
+        </form>
+
+        <p id="formStatus" role="status" aria-live="polite"></p>
+    </main>
+</body>
+</html>
