@@ -117,6 +117,50 @@ textarea:focus {
 }
 
 
+/* Feedback field validation */
+#feedbackForm input,
+#feedbackForm select,
+#feedbackForm textarea {
+    border: 2px solid #777;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+#feedbackForm [aria-invalid="true"] {
+    border-color: #b42318;
+}
+
+#feedbackForm [aria-invalid="false"] {
+    border-color: #237a35;
+}
+
+#feedbackForm input:focus,
+#feedbackForm select:focus,
+#feedbackForm textarea:focus {
+    outline: 3px solid #555;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px white;
+}
+
+#feedbackForm .error-message {
+    color: #b42318;
+    margin: 4px 0 12px;
+}
+
+#feedbackForm select {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #feedbackForm input,
+    #feedbackForm select,
+    #feedbackForm textarea {
+        transition: none;
+    }
+}
+
 /* Footer */
 footer {
     background-color: #111;
