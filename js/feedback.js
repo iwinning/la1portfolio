@@ -14,6 +14,9 @@ const commentsError = document.getElementById("commentsError");
 const website = document.getElementById("website");
 const websiteError = document.getElementById("websiteError");
 
+// Remember the timer so Clear or a new success can cancel it.
+let successMessageTimer;
+
 // Functions
 function updateCharacterCounter() {
     const count = comments.value.length;
@@ -100,6 +103,8 @@ function validateWebsite() {
 }
 
 function resetForm() {
+    clearTimeout(successMessageTimer);
+
     // Restore the empty fields and the topic placeholder from the HTML.
     feedbackForm.reset();
 
@@ -138,6 +143,9 @@ feedbackForm.addEventListener("submit", function (event) {
         const submittedName = fullName.value.trim();
         resetForm();
         formStatus.textContent = `Thanks for your feedback, ${submittedName}!`;
+        successMessageTimer = setTimeout(function () {
+            formStatus.textContent = "";
+        }, 4000);
     }
 });
 
