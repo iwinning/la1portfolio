@@ -134,7 +134,10 @@ feedbackForm.addEventListener("submit", function (event) {
     const websiteValid = validateWebsite();
 
     if (fullNameValid && emailValid && topicValid && commentsValid && websiteValid) {
-        formStatus.textContent = `Thanks for your feedback, ${fullName.value.trim()}!`;
+        // Save the name before resetting the fields, then display the message.
+        const submittedName = fullName.value.trim();
+        resetForm();
+        formStatus.textContent = `Thanks for your feedback, ${submittedName}!`;
     }
 });
 
