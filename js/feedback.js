@@ -62,7 +62,7 @@ function validateEmail() {
 
     if (value === "") {
         message = "Please enter your email address.";
-    } else if (!/^[^\s@]+@[^\s@.]+(?:\.[^\s@.]+)+$/.test(value)) {
+    } else if (!email.validity.valid || !/^[^\s@]+@[^\s@.]+(?:\.[^\s@.]+)+$/.test(value)) {
         message = "Enter an email address with a domain, such as name@example.com.";
     }
 
