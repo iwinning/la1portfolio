@@ -1,0 +1,32 @@
+# Dependencies and generated output
+node_modules/
+dist/
+coverage/
+.cache/
+
+# Local environment files and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+.npmrc
+.aws/
+.ssh/
+
+# Local editor, agent, and operating system files
+.vscode/
+.idea/
+.agents/
+.codex/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*~
