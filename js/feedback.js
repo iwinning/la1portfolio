@@ -1,6 +1,7 @@
 // Element selections
 const feedbackForm = document.getElementById("feedbackForm");
 const formStatus = document.getElementById("formStatus");
+const clearButton = document.getElementById("clearButton");
 const comments = document.getElementById("comments");
 const charCounter = document.getElementById("charCounter");
 const fullName = document.getElementById("fullName");
@@ -98,7 +99,29 @@ function validateWebsite() {
     return showValidationResult(website, websiteError, message);
 }
 
+function resetForm() {
+    // Restore the empty fields and the topic placeholder from the HTML.
+    feedbackForm.reset();
+
+    const fields = [fullName, email, topic, comments, website];
+    const errorMessages = [nameError, emailError, topicError, commentsError, websiteError];
+
+    // Removing aria-invalid also removes the red or green validation border.
+    for (const field of fields) {
+        field.removeAttribute("aria-invalid");
+    }
+
+    for (const errorMessage of errorMessages) {
+        errorMessage.textContent = "";
+    }
+
+    formStatus.textContent = "";
+    updateCharacterCounter();
+}
+
 // Event listeners
+clearButton.addEventListener("click", resetForm);
+
 feedbackForm.addEventListener("submit", function (event) {
     event.preventDefault();
     formStatus.textContent = "";
